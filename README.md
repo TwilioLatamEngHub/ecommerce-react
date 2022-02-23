@@ -46,3 +46,5 @@ $ npm run dev-server
 ```sh
 $ npm run build
 ```
+## Original project
+[Original project](https://github.com/jgudo/ecommerce-react) made by [Julius Guevara](https://github.com/jgudo)
