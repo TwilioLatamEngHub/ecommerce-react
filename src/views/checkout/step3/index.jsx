@@ -1,11 +1,13 @@
-import { CHECKOUT_STEP_1 } from 'constants/routes';
+import { CHECKOUT_STEP_1, CHECKOUT_THANKS } from 'constants/routes';
 import { Form, Formik } from 'formik';
 import { displayActionMessage } from 'helpers/utils';
 import { useDocumentTitle, useScrollTop } from 'hooks';
 import PropType from 'prop-types';
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
+import SendToTwilio from 'services/twilio';
 import { StepTracker } from '../components';
 import withCheckout from '../hoc/withCheckout';
 import CreditPayment from './CreditPayment';
@@ -30,6 +32,10 @@ const FormSchema = Yup.object().shape({
 });
 
 const Payment = ({ shipping, payment, subtotal }) => {
+  const history = useHistory();
+  const profile = useSelector((state) => state.profile);
+
+
   useDocumentTitle('Check Out Final Step | Twilio Store');
   useScrollTop();
 
@@ -41,8 +47,10 @@ const Payment = ({ shipping, payment, subtotal }) => {
     type: payment.type || 'paypal'
   };
 
-  const onConfirm = () => {
-    displayActionMessage('Feature not ready yet :)', 'info');
+  const onConfirm = async () => {
+    const result = await SendToTwilio(profile.mobile.value, profile.fullname, '123');
+    console.log(result);
+    history.push(CHECKOUT_THANKS);
   };
 
   if (!shipping || !shipping.isDone) {

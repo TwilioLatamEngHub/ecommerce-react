@@ -36,6 +36,14 @@ const StepTracker = ({ current }) => {
             <h6 className="checkout-header-subtitle">Payment</h6>
           </div>
         </li>
+        <li className={`checkout-header-list ${className(4)}`}>
+          <div className="checkout-header-item">
+            <div className="checkout-header-icon">
+              <h4 className="checkout-header-step">4</h4>
+            </div>
+            <h6 className="checkout-header-subtitle">Confirmation</h6>
+          </div>
+        </li>
       </ul>
     </div>
   );

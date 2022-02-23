@@ -30,6 +30,7 @@ const UserProfile = (props) => {
           </div>
           <button
             className="button button-small user-profile-edit"
+            // eslint-disable-next-line react/destructuring-assignment
             onClick={() => props.history.push(ACCOUNT_EDIT)}
             type="button"
           >
