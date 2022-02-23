@@ -63,7 +63,7 @@ const Home = () => {
           ) : (
             <ProductShowcaseGrid
               products={featuredProducts}
-              skeletonCount={6}
+              skeletonCount={1}
             />
           )}
         </div>
@@ -81,7 +81,7 @@ const Home = () => {
           ) : (
             <ProductShowcaseGrid
               products={recommendedProducts}
-              skeletonCount={6}
+              skeletonCount={1}
             />
           )}
         </div>
