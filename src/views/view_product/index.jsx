@@ -16,7 +16,27 @@ import Select from 'react-select';
 
 const ViewProduct = () => {
   const { id } = useParams();
-  const { product, isLoading, error } = useProduct(id);
+  // const { isLoading, error } = useProduct(id);
+  const isLoading = false;
+  const error = false;
+  const product = {
+    id: '2',
+    name: 'Twilio Sticker',
+    brand: 'Twilio',
+    price: 10,
+    quantity: 1,
+    maxQuantity: 2,
+    description: 'Cool Twilio Sticker',
+    keywords: 'sticker',
+    selectedColor: 'red',
+    sizes: [100],
+    image: 'https://ih1.redbubble.net/image.3006954587.1186/st,small,507x507-pad,600x600,f8f8f8.jpg',
+    imageUrl: 'https://ih1.redbubble.net/image.3006954587.1186/st,small,507x507-pad,600x600,f8f8f8.jpg',
+    isFeatured: true,
+    isRecommended: true,
+    availableColors: ['red'],
+    imageCollection: []
+  };
   const { addToBasket, isItemOnBasket } = useBasket(id);
   useScrollTop();
   useDocumentTitle(`View ${product?.name || 'Item'}`);
@@ -61,9 +81,9 @@ const ViewProduct = () => {
           <LoadingOutlined style={{ fontSize: '3rem' }} />
         </div>
       )}
-      {error && (
+      {/* {error && (
         <MessageDisplay message={error} />
-      )}
+      )} */}
       {(product && !isLoading) && (
         <div className="product-view">
           <Link to={SHOP}>

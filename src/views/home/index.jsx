@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 
 const Home = () => {
-  useDocumentTitle('Salinaka | Home');
+  useDocumentTitle('Twilio Store | Home');
   useScrollTop();
 
   const {
@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <main className="content">
       <div className="home">
-        <div className="banner">
+        {/* <div className="banner">
           <div className="banner-desc">
             <h1 className="text-thin">
               <strong>See</strong>
@@ -48,7 +48,7 @@ const Home = () => {
             </Link>
           </div>
           <div className="banner-img"><img src={bannerImg} alt="" /></div>
-        </div>
+        </div> */}
         <div className="display">
           <div className="display-header">
             <h1>Featured Products</h1>
