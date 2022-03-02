@@ -1,4 +1,4 @@
-# Twilio Store | E-commerce react app
+# E-commerce react app
 
 Simple ecommerce react js app with firebase
 
