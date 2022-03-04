@@ -5,7 +5,6 @@ import { FEATURED_PRODUCTS, RECOMMENDED_PRODUCTS, SHOP } from 'constants/routes'
 import {
   useDocumentTitle, useFeaturedProducts, useRecommendedProducts, useScrollTop
 } from 'hooks';
-import bannerImg from 'images/banner-girl.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,16 +29,11 @@ const Home = () => {
   return (
     <main className="content">
       <div className="home">
-        {/* <div className="banner">
+        <div className="banner">
           <div className="banner-desc">
-            <h1 className="text-thin">
-              <strong>See</strong>
-              &nbsp;everything with&nbsp;
-              <strong>Clarity</strong>
-            </h1>
+            <h1 className="text-thin">Twilio Store</h1>
             <p>
-              Buying eyewear should leave you happy and good-looking, with money in your pocket.
-              Glasses, sunglasses, and contacts—we’ve got your eyes covered.
+              Every swag ever made for Twilions now available for you!
             </p>
             <br />
             <Link to={SHOP} className="button">
@@ -47,8 +41,7 @@ const Home = () => {
               <ArrowRightOutlined />
             </Link>
           </div>
-          <div className="banner-img"><img src={bannerImg} alt="" /></div>
-        </div> */}
+        </div>
         <div className="display">
           <div className="display-header">
             <h1>Featured Products</h1>
