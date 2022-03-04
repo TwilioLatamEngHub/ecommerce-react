@@ -81,11 +81,12 @@ const ViewProduct = () => {
               <br />
               <div className="divider" />
               <br />
-              <div>
+              <div type="">
                 <Select
                   placeholder="--Select Size--"
                   onChange={onSelectedSizeChange}
-                  options={product.sizes.sort((a, b) => (a < b ? -1 : 1)).map((size) => ({ label: `${size} mm`, value: size }))}
+                  // TODO: Fix sizes shortcuts such as cm, ml, etc
+                  options={product.sizes.map((size) => ({ label: size, value: size }))}
                   styles={{ menu: (provided) => ({ ...provided, zIndex: 10 }) }}
                 />
               </div>
