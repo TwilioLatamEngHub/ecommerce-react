@@ -17,13 +17,13 @@ const useProduct = (id) => {
       try {
         if (!product || product.id !== id) {
           setLoading(true);
-          const doc = await firebase.getSingleProduct(id);
+          const { products } = await firebase.getProducts();
 
-          if (doc.exists) {
-            const data = { ...doc.data(), id: doc.ref.id };
+          if (products.length > 0) {
+            const data = products.filter((item) => item.id === id);
 
             if (didMount) {
-              setProduct(data);
+              setProduct(data[0]);
               setLoading(false);
             }
           } else {

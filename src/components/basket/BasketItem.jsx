@@ -45,7 +45,6 @@ const BasketItem = ({ product }) => {
             <div>
               <span className="spec-title">Color</span>
               <div style={{
-                backgroundColor: product.selectedColor || product.availableColors[0],
                 width: '15px',
                 height: '15px',
                 borderRadius: '50%'
@@ -79,9 +78,7 @@ BasketItem.propTypes = {
     maxQuantity: PropType.number,
     description: PropType.string,
     keywords: PropType.arrayOf(PropType.string),
-    selectedSize: PropType.string,
-    selectedColor: PropType.string,
-    imageCollection: PropType.arrayOf(PropType.string),
+    selectedSize: PropType.number,
     sizes: PropType.arrayOf(PropType.number),
     image: PropType.string,
     imageUrl: PropType.string,

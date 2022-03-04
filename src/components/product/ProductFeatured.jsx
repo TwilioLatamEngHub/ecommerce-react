@@ -20,6 +20,7 @@ const ProductFeatured = ({ product }) => {
             <ImageLoader
               className="product-card-img"
               src={product.image}
+              alt={product.name}
             />
           ) : <Skeleton width="100%" height="100%" />}
         </div>
