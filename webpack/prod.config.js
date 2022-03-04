@@ -5,7 +5,6 @@ const DotEnv = require("dotenv");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const workboxPlugin = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
 DotEnv.config({ path: ".env.prod" });
@@ -66,14 +65,6 @@ module.exports = merge(baseConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: "auto",
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "../static"),
-          to: "static",
-        },
-      ],
     }),
     new webpack.DefinePlugin({
       "process.env.FIREBASE_API_KEY": JSON.stringify(

@@ -3,7 +3,6 @@ const { merge } = require("webpack-merge");
 const path = require("path");
 const DotEnv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const baseConfig = require("./base.config.js");
 
@@ -24,14 +23,6 @@ module.exports = merge(baseConfig, {
       filename: "index.html",
       template: "index.html",
       inject: true,
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "../static"),
-          to: "static",
-        },
-      ],
     }),
     new webpack.DefinePlugin({
       "process.env.FIREBASE_API_KEY": JSON.stringify(
