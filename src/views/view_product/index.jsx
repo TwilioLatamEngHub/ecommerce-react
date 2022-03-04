@@ -29,7 +29,7 @@ const ViewProduct = () => {
     description: 'Cool Twilio Sticker',
     keywords: 'sticker',
     selectedColor: 'red',
-    sizes: [100],
+    sizes: ['100'],
     image: 'https://ih1.redbubble.net/image.3006954587.1186/st,small,507x507-pad,600x600,f8f8f8.jpg',
     imageUrl: 'https://ih1.redbubble.net/image.3006954587.1186/st,small,507x507-pad,600x600,f8f8f8.jpg',
     isFeatured: true,
@@ -128,9 +128,6 @@ const ViewProduct = () => {
               <div className="divider" />
               <br />
               <div>
-                <span className="text-subtle">Lens Width and Frame Size</span>
-                <br />
-                <br />
                 <Select
                   placeholder="--Select Size--"
                   onChange={onSelectedSizeChange}
