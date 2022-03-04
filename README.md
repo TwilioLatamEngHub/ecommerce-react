@@ -30,6 +30,10 @@ FIREBASE_STORAGE_BUCKET=yourstoragebucket.appspot.com
 FIREBASE_MSG_SENDER_ID=43597918523958
 FIREBASE_APP_ID=234598789798798fg3-034
 
+// Twilio
+TWILIO_ACCOUNT_SID=yourtwilioaccountsid
+TWILIO_AUTH_TOKEN=yourtwilioauthtoken
+
 ```
 
 After setting up necessary configuration,
