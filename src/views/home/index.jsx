@@ -3,41 +3,19 @@ import { MessageDisplay, Preloader } from 'components/common';
 import { ProductShowcaseGrid } from 'components/product';
 import { FEATURED_PRODUCTS, RECOMMENDED_PRODUCTS, SHOP } from 'constants/routes';
 import {
-  useDocumentTitle, useFeaturedProducts, useRecommendedProducts, useScrollTop
+  useDocumentTitle, useFeaturedProducts, usePopulateDB, useRecommendedProducts, useScrollTop
 } from 'hooks';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import firebase from 'services/firebase';
-import twilioProducts from 'helpers/products';
 
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
   useDocumentTitle('Twilio Store | Home');
   useScrollTop();
+  const { isLoading, fetchProducts } = usePopulateDB();
 
-  // Add products to Firebase if DB is not populated
   useEffect(() => {
-    const fetchProducts = async () => {
-      setIsLoading(true);
-
-      const { products } = await firebase.getProducts();
-
-      if (products.length === 0) {
-        const promises = twilioProducts.map(async (item) => {
-          const id = firebase.generateKey();
-          return firebase.addProduct(id, item);
-        });
-
-        await Promise.all(promises);
-        setIsLoading(false);
-        window.location.reload();
-      }
-
-      setIsLoading(false);
-    };
-
+    // Add products to Firebase if DB is not populated
     fetchProducts();
   }, []);
 
